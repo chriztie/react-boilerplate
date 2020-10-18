@@ -16,12 +16,16 @@ For material UI theme
 
 Development dependencies
 
-`npm install -D cross-env npm-run-all json-server @types/react @types/react-dom`
+`npm install -D cross-env npm-run-all json-server @types/react @types/react-dom faker lodash`
 
 cross-env: for managing configuration values in different environments
 
-npm-run-all: to run parellel apps
+npm-run-all: to run apps in parellel
 
 json-server: to host apis
+
+faker: to generate fake data
+
+lodash: a utility simplifying js based functions
 
 @types/react and @types/react-dom for typescript validations
