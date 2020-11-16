@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
@@ -12,8 +11,8 @@
   },
   "scripts": {
     "start": "run-p start:dev start:api",
-    "start:dev": "cross-env REACT_APP_API_URL=http://localhost:3001 react-scripts start",    
-    "start:api": "json-server utils/dataGenerator.js --port 3001",
+    "start:dev": "react-scripts start",
+    "start:api": "json-server -w utils/dataGenerator.js -p 3001 -s ./node_modules/json-server/public",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -41,6 +40,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.6",
     "cross-env": "^7.0.2",
     "faker": "^5.1.0",
     "json-server": "^0.16.2",

@@ -1,6 +1,6 @@
 module.exports = function (){
     const faker = require("faker");
-    const _ = require("lodash");
+    const _ = require("lodash");    
 
     return {
         users: _.times(100, function (index){
@@ -11,7 +11,7 @@ module.exports = function (){
                 title: faker.name.title(),
                 email: faker.internet.email(),                
                 avatar: faker.internet.avatar()
-            }
+            } 
         }),
         products: _.times(500, function(index){
             return {
