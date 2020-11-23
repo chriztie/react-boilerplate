@@ -1,7 +1,7 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import { getUsers, postUser } from "../../api/usersApi";
 import { User } from "../../models/user";
-import "../../components/users/UsersPage.css"
+import "./UsersPage.css"
 
 const UsersPage = () : ReactElement => {
 

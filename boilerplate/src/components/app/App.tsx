@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch } from "react-router-dom";
-import HomePage from "./../home/HomePage";
-import AboutPage from "./../about/AboutPage";
+import HomePage from "../../pages/home/HomePage";
+import AboutPage from "../../pages/about/AboutPage";
 import Header from "./../common/header/Header";
 import Footer from '../common/footer/Footer';
-import InvalidPage from '../invalid/InvalidPage';
-import UsersPage from '../users/UsersPage';
+import InvalidPage from '../../pages/invalid/InvalidPage';
+import UsersPage from '../../pages/users/UsersPage';
 const App = () => (    
     <>
       <Header />
