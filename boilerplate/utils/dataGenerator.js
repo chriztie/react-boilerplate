@@ -10,7 +10,7 @@ module.exports = function (){
                 lastName: faker.name.lastName(),
                 title: faker.name.title(),
                 email: faker.internet.email(),                
-                avatar: faker.internet.avatar()
+                avatar: 'https://via.placeholder.com/100'                
             } 
         }),
         products: _.times(500, function(index){

@@ -1,10 +1,11 @@
-import React, { ReactElement, useState, useEffect } from 'react';
+import React, { ReactElement, useState, useEffect, useContext } from 'react';
+import { IAdministratorContext, AdministratorContext } from "../../components/app/App";
 import { getUsers, postUser } from "../../api/usersApi";
 import { User } from "../../models/user";
 import "./UsersPage.css"
 
 const UsersPage = () : ReactElement => {
-
+    const adminContext = useContext<IAdministratorContext>(AdministratorContext);
     const [users, setUsers] = useState<User[]>([]);
     const [newUser, setNewUser] = useState<User>(
         {
@@ -13,14 +14,14 @@ const UsersPage = () : ReactElement => {
             title:'', 
             email:'', 
             id: 0,            
-            avatar:'https://via.placeholder.com/150'
+            avatar:'https://via.placeholder.com/100'
         });
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();        
         await postUser(newUser);
-        const json = await getUsers();
-        setUsers(json);
+        const newUsers = await getUsers();
+        setUsers(newUsers);
     }
 
     const handleTextChange = ({currentTarget}: React.FormEvent<HTMLInputElement>) => {        
@@ -30,8 +31,8 @@ const UsersPage = () : ReactElement => {
     useEffect(()=>
     {
         const fetchUsers = async () => {
-            const json = await getUsers();
-            setUsers(json);
+            const allUsers = await getUsers();
+            setUsers(allUsers);
         }
         fetchUsers();        
     }, 
@@ -60,7 +61,11 @@ const UsersPage = () : ReactElement => {
                 <span>{user.lastName}, {user.firstName}</span> 
                 <span>{user.title}</span>                                 
                 <span><a href={"mailto:" + user.email}>{user.email}</a></span> 
-            </div>            
+            </div>   
+            {adminContext.adminEmails.includes(user.email) ? 
+                <button onClick={() => adminContext.removeAdmin(user.email)}>Remove Admin</button> :
+                <button onClick={() => adminContext.addAdmin(user.email)}>Make Admin</button>         
+            }
         </div>        
         )}
         </div>
