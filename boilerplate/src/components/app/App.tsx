@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, { createContext, useState} from 'react';
 import './App.css';
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../../pages/home/HomePage";
@@ -14,7 +14,7 @@ export interface IAdministratorContext {
   removeAdmin: Function;
 }
 
-export const AdministratorContext = React.createContext<IAdministratorContext>({adminEmails:[], addAdmin:()=>{}, removeAdmin:()=>{} });
+export const AdministratorContext = createContext<IAdministratorContext>({adminEmails:[], addAdmin:()=>{}, removeAdmin:()=>{} });
 
 const App = () => {
 
